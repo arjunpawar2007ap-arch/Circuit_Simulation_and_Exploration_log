@@ -8,4 +8,4 @@ A better and rather fruitful way of ditching academics(or atleast an attempt) an
 
 Are nothing but some crazy projects, i did(or atleast tried to figure out) and document what all i learnt in the process. Please expect, total randomness and me trying to figure out things, along with some great visuals and simulations.
 
----
+
