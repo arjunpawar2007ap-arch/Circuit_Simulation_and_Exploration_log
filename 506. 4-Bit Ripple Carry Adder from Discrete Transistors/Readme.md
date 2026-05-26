@@ -7,7 +7,7 @@
 ---
 
 ## What it does
-Adds two 4-bit binary numbers and outputs a 4-bit sum plus a carry bit — 
+Adds two 4-bit binary numbers and outputs a 4-bit sum plus a carry bit 
 built entirely from 96 discrete NPN transistors using RTL (Resistor-Transistor 
 Logic). No logic ICs, no gates, no shortcuts. Just transistors.
 
@@ -19,11 +19,11 @@ from transistors. This project goes all the way down implementing a 4-bit
 adder at the transistor level, the same way early computers were built before 
 integrated circuits existed.
 
-The architecture is a **Ripple Carry Adder** — carry propagates from the least 
+The architecture is a **Ripple Carry Adder** -> carry propagates from the least 
 significant bit to the most significant bit through four full adder stages, 
 each built from transistor-level XOR, AND, and OR logic.
 
-**RTL (Resistor-Transistor Logic)** — the simplest transistor logic family, 
+**RTL (Resistor-Transistor Logic)** —> the simplest transistor logic family, 
 where resistors and NPN transistors form basic gates. A transistor in saturation 
 pulls the output LOW, a transistor in cutoff allows the output to be pulled HIGH 
 through a resistor.
