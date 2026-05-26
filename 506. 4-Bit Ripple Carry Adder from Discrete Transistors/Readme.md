@@ -1,8 +1,12 @@
 # 4-Bit Ripple Carry Adder from Discrete Transistors
 
-**Simulator:** Logisim & TinkerCad
+**Simulator:** LTSpice & TinkerCad
 **Difficulty:** Intermediate-Advanced  
 **Components:** NPN Transistors (96x), Resistors, LEDs (5x), Switches (8x)
+
+---
+
+![LTSpice](LTspice.png)
 
 ---
 
