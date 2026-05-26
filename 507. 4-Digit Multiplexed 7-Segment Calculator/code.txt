@@ -1,0 +1,115 @@
+int buzzPin = 13;
+int A = 7;
+int B = 8;
+int C = 4;
+int D = 3;
+int E = 2;
+int F = 6;
+int G = 5;
+int D1 = 9;
+int D2 = 10;
+int D3 = 11;
+int D4 = 12;
+
+int segmentPins[7] = {A, B, C, D, E, F, G};
+int numbers[10][7] = {
+  {1,1,1,1,1,1,0}, 
+  {0,1,1,0,0,0,0}, 
+  {1,1,0,1,1,0,1}, 
+  {1,1,1,1,0,0,1}, 
+  {0,1,1,0,0,1,1}, 
+  {1,0,1,1,0,1,1}, 
+  {1,0,1,1,1,1,1}, 
+  {1,1,1,0,0,0,0}, 
+  {1,1,1,1,1,1,1}, 
+  {1,1,1,1,0,1,1}  
+};
+
+int digits[4] = {0};
+
+int number1 = 0;
+int number2 = 0;
+int sum = 0;
+int subtraction = 0;
+int multiply = 0;
+int divide = 0;
+
+char operation;
+
+void setup()
+{
+  pinMode(buzzPin, OUTPUT);
+  pinMode(A, OUTPUT);
+  pinMode(B, OUTPUT);
+  pinMode(C, OUTPUT);
+  pinMode(D, OUTPUT);
+  pinMode(E, OUTPUT);
+  pinMode(F, OUTPUT);
+  pinMode(G, OUTPUT);
+  pinMode(D1, OUTPUT);
+  pinMode(D2, OUTPUT);
+  pinMode(D3, OUTPUT);
+  pinMode(D4, OUTPUT);
+  Serial.begin(9600);
+  
+  Serial.println("Enter first number:");
+  while (Serial.available() == 0);  
+  number1 = Serial.parseInt();
+  while (Serial.available() > 0) Serial.read();
+  
+  Serial.println("Enter second number:");
+  while (Serial.available() == 0);
+  number2 = Serial.parseInt();
+  while (Serial.available() > 0) Serial.read();
+  
+  Serial.println("Select an operation (+, -, *, /):");
+  while (Serial.available() == 0);
+  operation = Serial.read();
+  
+  if(operation == '+') {
+  	sum = number1 + number2;
+  	digits[0] = sum / 1000;
+  	digits[1] = (sum / 100) % 10;
+  	digits[2] = (sum / 10) % 10;
+  	digits[3] = sum % 10;
+  }
+  if(operation == '-') {
+  	subtraction = number1 - number2;
+  	digits[0] = subtraction / 1000;
+  	digits[1] = (subtraction / 100) % 10;
+  	digits[2] = (subtraction / 10) % 10;
+  	digits[3] = subtraction % 10;
+  }
+  if(operation == '*') {
+  	multiply = number1 * number2;
+  	digits[0] = multiply / 1000;
+  	digits[1] = (multiply / 100) % 10;
+  	digits[2] = (multiply / 10) % 10;
+  	digits[3] = multiply % 10;
+  }
+  if(operation == '/') {
+  	divide = number1 / number2;
+  	digits[0] = divide / 1000;
+  	digits[1] = (divide / 100) % 10;
+  	digits[2] = (divide / 10) % 10;
+  	digits[3] = divide % 10;
+  }
+}
+
+void loop()
+{
+  
+  for(int i = 0; i < 4; i++) {
+    digitalWrite(D1, HIGH);
+    digitalWrite(D2, HIGH);
+    digitalWrite(D3, HIGH);
+    digitalWrite(D4, HIGH);
+    
+    for(int j = 0; j < 7; j++) {
+		digitalWrite(segmentPins[j], numbers[digits[i]][j]);
+    }
+    digitalWrite(i + 9, LOW);
+    delay(1);
+  }
+  
+}
