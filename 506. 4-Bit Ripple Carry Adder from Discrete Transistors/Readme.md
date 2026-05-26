@@ -7,7 +7,7 @@
 ---
 
 ## What it does
-Adds two 4-bit binary numbers and outputs a 4-bit sum plus a carry bit — 
+Adds two 4-bit binary numbers and outputs a 4-bit sum plus a carry bit 
 built entirely from 96 discrete NPN transistors using RTL (Resistor-Transistor 
 Logic). No logic ICs, no gates, no shortcuts. Just transistors.
 
@@ -19,11 +19,11 @@ from transistors. This project goes all the way down implementing a 4-bit
 adder at the transistor level, the same way early computers were built before 
 integrated circuits existed.
 
-The architecture is a **Ripple Carry Adder** — carry propagates from the least 
+The architecture is a **Ripple Carry Adder** -> carry propagates from the least 
 significant bit to the most significant bit through four full adder stages, 
 each built from transistor-level XOR, AND, and OR logic.
 
-**RTL (Resistor-Transistor Logic)** — the simplest transistor logic family, 
+**RTL (Resistor-Transistor Logic)** —> the simplest transistor logic family, 
 where resistors and NPN transistors form basic gates. A transistor in saturation 
 pulls the output LOW, a transistor in cutoff allows the output to be pulled HIGH 
 through a resistor.
@@ -62,8 +62,8 @@ Four full adders chained together. The carry-out of each stage feeds into
 the carry-in of the next. The carry "ripples" from bit 0 to bit 3.
 
 **Input/Output:**
-- 8 switches — 4 for number A (A3 A2 A1 A0), 4 for number B (B3 B2 B1 B0)
-- 5 LEDs - 4 for sum bits (S3 S2 S1 S0), 1 for carry-out
+- 8 switches —> 4 for number A (A3 A2 A1 A0), 4 for number B (B3 B2 B1 B0)
+- 5 LEDs -> 4 for sum bits (S3 S2 S1 S0), 1 for carry-out
 
 ---
 
@@ -79,7 +79,7 @@ the carry-in of the next. The carry "ripples" from bit 0 to bit 3.
 ![Complete_Circuit](Complete_circuit.png)
 
 **LOGISIM CONNECTIONS**
-![schematic](Schematic.png)
+![schematic](Schematic.PNG)
 
 ---
 
