@@ -62,8 +62,8 @@ Four full adders chained together. The carry-out of each stage feeds into
 the carry-in of the next. The carry "ripples" from bit 0 to bit 3.
 
 **Input/Output:**
-- 8 switches — 4 for number A (A3 A2 A1 A0), 4 for number B (B3 B2 B1 B0)
-- 5 LEDs - 4 for sum bits (S3 S2 S1 S0), 1 for carry-out
+- 8 switches —> 4 for number A (A3 A2 A1 A0), 4 for number B (B3 B2 B1 B0)
+- 5 LEDs -> 4 for sum bits (S3 S2 S1 S0), 1 for carry-out
 
 ---
 
