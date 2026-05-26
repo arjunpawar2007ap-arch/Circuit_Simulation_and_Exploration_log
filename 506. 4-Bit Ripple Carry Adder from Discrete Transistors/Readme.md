@@ -79,7 +79,7 @@ the carry-in of the next. The carry "ripples" from bit 0 to bit 3.
 ![Complete_Circuit](Complete_circuit.png)
 
 **LOGISIM CONNECTIONS**
-![schematic](Schematic.png)
+![schematic](Schematic.PNG)
 
 ---
 
