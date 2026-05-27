@@ -1,0 +1,80 @@
+int LED1 = 8;
+int LED2 = 9;
+int LED3 = 10;
+int LED4 = 11;
+int LED5 = 12;
+
+int TRIG = 6;
+int ECHO = 3;
+
+int BUZZ = 5;
+
+int target = 50;
+void setup()
+{
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
+  pinMode(LED3, OUTPUT);
+  pinMode(LED4, OUTPUT);
+  pinMode(LED5, OUTPUT);
+  pinMode(TRIG, OUTPUT);
+  pinMode(ECHO, INPUT);
+  pinMode(BUZZ, OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(LED1, LOW);
+  digitalWrite(LED2, LOW);
+  digitalWrite(LED3, LOW);
+  digitalWrite(LED4, LOW);
+  digitalWrite(LED5, LOW);
+  
+  
+  digitalWrite(TRIG, LOW);
+  delayMicroseconds(2);
+  digitalWrite(TRIG, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIG, LOW);
+  delayMicroseconds(10);
+  
+  long duration = pulseIn(ECHO, HIGH);
+  float distance = duration * 0.034 / 2;
+  
+  if(distance <= 100) {
+    digitalWrite(LED1, HIGH);
+    tone(BUZZ, 900);
+  }
+  if(distance <= 90) {
+    digitalWrite(LED2, HIGH);
+    tone(BUZZ, 1100);
+  }
+  if(distance <= 80) {
+    digitalWrite(LED3, HIGH);
+    tone(BUZZ, 1400);
+  }
+  if(distance <= 70) {
+    digitalWrite(LED4, HIGH);
+    tone(BUZZ, 2000);
+  }
+  if(distance <= 60) {
+    digitalWrite(LED5, HIGH);
+    tone(BUZZ, 2500);
+  }
+  if(distance <= 50) {
+    tone(BUZZ, 3300);
+    digitalWrite(LED1, LOW);
+    digitalWrite(LED2, LOW);
+    digitalWrite(LED3, LOW);
+    digitalWrite(LED4, LOW);
+    digitalWrite(LED5, LOW);
+    
+    delay(1000);
+    
+    digitalWrite(LED1, HIGH);
+    digitalWrite(LED2, HIGH);
+    digitalWrite(LED3, HIGH);
+    digitalWrite(LED4, HIGH);
+    digitalWrite(LED5, HIGH);
+  }
+}
