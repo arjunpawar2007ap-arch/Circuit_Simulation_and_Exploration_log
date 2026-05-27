@@ -1,0 +1,62 @@
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+int TRIG = 6;
+int ECHO = 5;
+int pumpLED = 9;
+
+float target = 30.0;
+float Kp = 5.0;
+float Ki = 0.1;
+float Kd = 1.0;
+
+float integral = 0;
+float lastError = 0;
+
+void setup() {
+  Serial.begin(9600);
+  lcd.init();
+  lcd.backlight();
+  pinMode(TRIG, OUTPUT);
+  pinMode(ECHO, INPUT);
+  pinMode(pumpLED, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(TRIG, LOW);
+  delayMicroseconds(2);
+  digitalWrite(TRIG, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIG, LOW);
+  
+  long duration = pulseIn(ECHO, HIGH);
+  float distance = duration * 0.034 / 2;
+
+  float error = distance - target;
+  integral += error * 0.2;
+  float derivative = (error - lastError) / 0.2;
+  lastError = error;
+
+  if(abs(error) < 1.0) integral = 0;
+  float pumpSpeed = (Kp * error) + (Ki * integral) + (Kd * derivative);
+  pumpSpeed = constrain(pumpSpeed, 0, 255);
+
+  analogWrite(pumpLED, pumpSpeed);
+
+  Serial.print("Distance: "); Serial.print(distance);
+  Serial.print(" | Error: "); Serial.print(error);
+  Serial.print(" | Pump: "); Serial.println(pumpSpeed);
+
+  lcd.setCursor(0, 0);
+  lcd.print("Dist:");
+  lcd.print(distance);
+  lcd.print("cm  ");
+  lcd.setCursor(0, 1);
+  lcd.print("Pump:");
+  lcd.print((int)pumpSpeed);
+  lcd.print("    ");
+
+  delay(200);
+}
