@@ -78,7 +78,7 @@ analogWrite(pumpLED, pumpSpeed);
 ---
 
 ## What I learnt
-PID is three different ways of looking at the same error — 
+PID is three different ways of looking at the same error
 where you are, where you've been, and where you're going. 
 P alone gets you close. I closes the last gap. D keeps it smooth.
 The same algorithm runs drones, cruise control, and industrial systems.
