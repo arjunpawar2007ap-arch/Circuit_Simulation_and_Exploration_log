@@ -1,4 +1,4 @@
-# 284 — PID Level Control System
+# 284 - PID Level Control System
 
 **Simulator:** Wokwi  
 **Difficulty:** Advanced  
@@ -11,7 +11,7 @@ Maintains a target water level using PID control. HC-SR04 measures
 distance to water surface, system automatically adjusts pump speed 
 to hold the level at setpoint.
 
-In simulation — distance slider = water level, LED brightness = pump speed.
+In simulation distance slider = water level, LED brightness = pump speed.
 
 ---
 
