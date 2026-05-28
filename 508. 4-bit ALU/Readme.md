@@ -21,22 +21,6 @@ from discrete gates in Logisim no black-box ALU components.
 
 ---
 
-## Architecture
-
-A[3:0]    B[3:0]    Op[1:0]
-        |         |         |
-        |    [XOR gates] ←--+-- Op[0] (invert B for subtraction)
-        |         |
-     [Ripple Carry Adder] → Sum
-     [AND gates]          → AND result  
-     [OR gates]           → OR result
-        |         |         |
-     [4x Multiplexers] ←--- Op[1:0]
-              |
-           Output[3:0]
-
----
-
 ## How each operation works
 
 **Addition (Op = 00 & Sub = 0):**
@@ -88,7 +72,7 @@ just with modified inputs. No separate subtraction hardware needed.
 ## Verification
 
 | A | B | Sub | Op | Operation | Result |
-|---|---|---|---|---|
+|---|---|---|---|---|---|
 | 0101 (5) | 0011 (3) | 0 | 00 | ADD | 1000 (8) |
 | 0101 (5) | 0011 (3) | 1 | 00 | SUB | 0010 (2) |
 | 1010 (10) | 1100 (12) | - | 01 | AND | 1000 (8) |
